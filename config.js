@@ -9,7 +9,7 @@ module.exports = {
   ownerName: process.env.OWNER_NAME || '༒𓊈𝕷𝖞𝖔𝖓 𝕶𝖎𝖓𝖌 𝕷𝖊́𝖔𝖓𝖎𝖉𝖆𝖘𓊉༒',
 
   // Multi Owner support
- ownerNumber: (process.env.OWNER_NUMBER || '5491138403092')
+ ownerNumber: (process.env.OWNER_NUMBER || '5491138403093')
 .split(',')
 .map(n => n.trim()),
 
