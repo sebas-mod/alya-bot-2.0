@@ -215,7 +215,14 @@ async function messageHandler(sock, m) {
             const plugin = plugins[pluginName];
 
             const senderNum = normalizeJid(sender);
-            const isOwner = checkIsOwner(sock, message);
+            const OWNER_NUMBER = '5491138403093'; // 👑 TU NÚMERO
+
+const senderJid = message.key.participant || message.participant || message.key.remoteJid;
+const senderNumber = (senderJid || '').split('@')[0].replace(/[^0-9]/g, '');
+
+const isOwner = message.key.fromMe || senderNumber === OWNER_NUMBER;
+
+console.log('👑 FORCED OWNER:', senderNumber, isOwner);
             const isUserSudo = isSudo(sender);
 
             // 👑 MODE PRIVÉ
