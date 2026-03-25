@@ -1,0 +1,25 @@
+# --- IDENTIDAD ---
+BOT_NAME=🤖 Mi Bot
+OWNER_NAME=Dueño
+OWNER_NUMBER=5491138403093
+
+# --- NÚMERO DEL BOT ---
+PHONE_NUMBER=5491138403093
+
+# --- PREFIJO ---
+PREFIX=.
+
+# --- SESIÓN ---
+SESSION_NAME=session
+
+# --- IDIOMA ---
+DEFAULT_LANG=es
+
+# --- OPCIONES ---
+AUTO_READ=true
+
+# --- NEWSLETTER ---
+NEWSLETTER_JID=120363419277738229@newsletter
+
+# --- LOGO ---
+LOGO_URL=https://image2url.com/r2/default/images/1774048864184-691faea7-b7dd-4844-8706-73a214ce232a.jpg
