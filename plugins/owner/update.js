@@ -4,8 +4,6 @@ const { exec } = require('child_process')
 const util = require('util')
 const execPromise = util.promisify(exec)
 
-const config = require('../../config')
-
 module.exports = [
 
 {
@@ -19,17 +17,11 @@ ownerOnly: true,
 execute: async (client, message) => {
 
 try {
-const sender = message.key.participant || message.key.remoteJid
-const senderNumber = sender.split('@')[0]
 
-// 🔐 Verificar owner
-const owners = config.ownerNumber.map(n => n.replace(/[^0-9]/g, ''))
+// 🔐 Verificar owner (FORZADO - NO FALLA)
+const isOwner = message.key.fromMe;
 
-const isOwner = owners.includes(senderNumber)
-
-console.log('📱 Sender:', senderNumber)
-console.log('👑 Owners:', owners)
-console.log('✅ Is Owner:', isOwner)
+console.log('👑 UPDATE OWNER CHECK:', isOwner);
 
 if (!isOwner) {
 return client.sendMessage(message.key.remoteJid, {
