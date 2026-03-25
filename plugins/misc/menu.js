@@ -13,7 +13,9 @@ const MENU_IMAGES = [
 "https://image2url.com/r2/default/images/1774302034055-af740f50-9400-4dd3-a734-0d39b8c48348.jpg"
 ];
 
-const AUDIO_THEME_URL = "https://files.catbox.moe/nj4zoi.mp3";
+const AUDIO_FILES = [
+path.join(__dirname, '../../audio/hola bb.mp3')
+];
 
 const menuCooldown = new Map();
 
@@ -140,19 +142,25 @@ mentions:[senderId],
 ...msgOptions
 },{quoted:message});
 
-if(AUDIO_THEME_URL){
+if (AUDIO_FILES.length > 0) {
 
-setTimeout(()=>{
+setTimeout(() => {
 
-client.sendMessage(chatId,{
+const randomAudio = AUDIO_FILES[Math.floor(Math.random() * AUDIO_FILES.length)];
 
-audio:{url:AUDIO_THEME_URL},
-mimetype:'audio/mpeg',
-ptt:false
+if (fs.existsSync(randomAudio)) {
 
+const audioBuffer = fs.readFileSync(randomAudio);
+
+client.sendMessage(chatId, {
+audio: audioBuffer,
+mimetype: 'audio/mpeg',
+ptt: true
 });
 
-},800);
+}
+
+}, 800);
 
 }
 
